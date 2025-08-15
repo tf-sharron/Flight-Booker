@@ -4,9 +4,9 @@ Project Timeline
 Got started with GitHub 
 Created repositiory 
 Create issues for each section
-Got confused stopped and went over notes again
-
 
 14/08/2025 
-
+Created home page 
+Create 4 drop down menus 
+Made the page visually appealing 
 
