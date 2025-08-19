@@ -1,0 +1,111 @@
+<style>
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+    margin: 0;
+    padding: 0;
+  }
+
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    color: #00695c;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    color: #555;
+  }
+
+  form div {
+    margin-bottom: 1.2rem;
+    text-align: left;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  select {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  select:focus {
+    border-color: #26a69a;
+    outline: none;
+  }
+
+  input[type="submit"] {
+    background: #26a69a;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+  }
+
+  input[type="submit"]:hover {
+    background: #1e867c;
+  }
+</style>
+
+<div class="main">
+  <div class="container">
+    <h1>Flight Booker</h1>
+    <p>Where would you like to go?</p>
+
+    <%= form_with url: "/submit", method: :post do %>
+      <div>
+        <%= label_tag :dropdown1, "Select Departure airport" %>
+        <%= select_tag :dropdown1, options_for_select(["Belfast International", "Belfast City", "London Gatwick", "Dublin"]) %>
+      </div>
+
+      <div>
+        <%= label_tag :dropdown2, "Select Arrival airport" %>
+        <%= select_tag :dropdown2, options_for_select(["NYC", "Ibiza", "Japan", "Italy"]) %>
+      </div>
+
+      <div>
+        <%= label_tag :dropdown3, "Select Date" %>
+        <%= select_tag :dropdown3, options_for_select(["14/08/2025", "27/08/2025", "30/08/2025", "27/05/2026"]) %>
+      </div>
+
+      <div>
+        <%= label_tag :dropdown4, "Select number of passengers" %>
+        <%= select_tag :dropdown4, options_for_select(["1", "2", "3", "4"]) %>
+      </div>
+
+      <div>
+        <%= submit_tag "Book Flight" %>
+      </div>
+    <% end %>
+  </div>
+</div>
